@@ -4,7 +4,8 @@ TEXDIR= tex
 vpath %.tex $(TEXDIR)
 
 ALL= \
-	$(PDFDIR)/syllabus.pdf
+	$(PDFDIR)/syllabus.pdf \
+	$(PDFDIR)/ps-1.pdf
 
 # $(PDFDIR)/%.pdf $(PDFDIR)/%-answers.pdf: $(TEXDIR)/%.tex $(TEXDIR)/exex.bib \
 # 	$(TEXDIR)/%-text.tex $(TEXDIR)/%-answers.tex $(TEXDIR)/exex_defs.tex
