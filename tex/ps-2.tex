@@ -1,0 +1,47 @@
+\documentclass[11pt, preprint]{article}
+\usepackage{hyperref}
+\usepackage{rotating}
+ 
+\setlength{\footnotesep}{9.6pt}
+\setlength{\parskip}{12pt}
+
+\newcounter{thefigs}
+\newcommand{\fignum}{\arabic{thefigs}}
+
+\newcounter{thetabs}
+\newcommand{\tabnum}{\arabic{thetabs}}
+
+\newcounter{address}
+
+\begin{document}
+
+\begin{center}
+  {\bf Radiative Processes in Astrophysics / Problem Set \#2 \\
+    Due February 24, 2021}
+\end{center}
+
+\noindent Model an interstellar cloud of gas and dust as a uniform,
+  plane-parallel slab 100 pc thick, with a temperature of 50 K, and
+  density dominated by molecular hydrogen with $n \sim 10$
+  cm$^{-3}$. (Problem from Aaron Parsons' notes).
+\begin{enumerate}
+\item Dust is typically made of silicate grains with $\rho \sim 3$ g
+  cm$^{-3}$, $r\sim 0.1$ $\mu$ and with a mass fraction of 0.01. What
+  is the number density of the dust grains?
+\item Imagine a backlight with $I_\nu = 3\times 10^{-9}$
+  erg~s$^{-1}$~Hz$^{-1}$~ster$^{-1}$~cm$^{-2}$ at $\nu =$ 1 THz
+  (terahertz). Assume the dust perfectly absorbs across its
+  cross-section. Ignoring thermal radiation by the dust, calculate
+  the profile of $I_\nu$ through the cloud and the optical depth
+  through the cloud.
+\item Add in the thermal reemission. Assume each dust grain radiates
+  as a blackbody  with T$=$ 50 K across its geometric
+  cross-section. Calculate $j_\nu$ at 1 THz. Find the functional form
+  for and sketch---for the case of {\it no backlight}---the 
+  profile $I_\nu$ through the cloud and the calculate the emergent
+  $I_\nu$. Include both emission and self-absorption!
+\item Now include the backlight and repeat the previous step.
+\end{enumerate}
+
+\end{document}
+
