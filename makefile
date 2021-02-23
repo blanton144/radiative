@@ -6,6 +6,7 @@ vpath %.tex $(TEXDIR)
 ALL= \
 	$(PDFDIR)/syllabus.pdf \
 	$(PDFDIR)/ps-1.pdf \
+	$(PDFDIR)/ans-1.pdf \
 	$(PDFDIR)/ps-2.pdf
 
 # $(PDFDIR)/%.pdf $(PDFDIR)/%-answers.pdf: $(TEXDIR)/%.tex $(TEXDIR)/exex.bib \

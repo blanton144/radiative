@@ -1,0 +1,237 @@
+\documentclass[11pt, preprint]{article}
+\usepackage{hyperref}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{environ}
+\usepackage{xcolor}
+
+ 
+\setlength{\footnotesep}{9.6pt}
+\setlength{\parskip}{12pt}
+
+\newcounter{thefigs}
+\newcommand{\fignum}{\arabic{thefigs}}
+
+\newcounter{thetabs}
+\newcommand{\tabnum}{\arabic{thetabs}}
+
+\newcounter{address}
+
+\NewEnviron{answer}[1][]{\color{blue}\expandafter\BODY
+{\par \it #1}}
+
+\begin{document}
+
+\begin{center}
+  {\bf Radiative Processes in Astrophysics / Problem Set \#1 /
+    Answers}
+\end{center}
+
+\begin{enumerate}
+\item Show that for an optically thin cloud around a source with mass
+  $M$ and luminosity $L$ (integrated over frequency), the condition
+  that the luminosity drives away the cloud through radiation pressure
+  is $L>4\pi G M c/\kappa$, where $\kappa$ is the opacity
+  (i.e. absorption coefficient per unit mass, assumed constant with
+  frequency).
+
+\begin{answer}
+Assume that it is a point source of mass and luminosity. Consider a
+small volume of material at distance $r$. The force per unit mass
+(i.e. the acceleration) due to gravity is:
+\begin{equation}
+a_g = - \frac{GM}{r^2}.
+\end{equation}
+Meanwhile, from R\&L Equation 1.34 we know that the force per unit
+mass due to radiation is:
+\begin{equation}
+f_r = \frac{1}{c} \int \rm{d}\,\nu F_\nu \kappa_\nu
+\end{equation}
+Let's take $\kappa$ to be the flux-weighted average of
+$\kappa_\nu$. Then:
+\begin{equation}
+f_r = \frac{\kappa}{c} F = \frac{\kappa L}{4\pi r^2 c}
+\end{equation}
+Then the condition that $f_r$ overpowers $f_g$ is:
+\begin{eqnarray}
+f_r &>& f_g \cr
+\frac{\kappa L}{4 \pi r^2 c} &>& \frac{GM}{r^2} \cr
+L &>& \frac{4 \pi GM c}{\kappa}.
+\end{eqnarray}
+This result is independent of radius.
+
+Pretty much the minimum $\kappa$ will be that due to Thomson
+scattering, and when Thomson scattering is used then this luminosity
+limit is known as the Eddington luminosity or Eddington limit. The
+Eddington limit seems to be respected for the most part by accreting
+black holes, even though they are definitely not spherically accreting
+and are not optically thin.
+\end{answer}
+\item Sunspots on the Sun have a temperature of $\sim 4000$ K,
+  relative to the typical location on the Sun, which has a temperature
+  of $\sim 5500 K$. What is the ratio of the specific intensity
+  integrated over frequency ($\int d\nu I_\nu$) that we should observe
+  in the location of a Sunspot relative to a typical location on the
+  solar disk?
+
+\begin{answer}
+The bolometric intensity will scale as $T^4$. Therefore the ratio of
+that observed in the sunspot vs. the other locations on the Sun is
+$(4000/5500)^4 \sim 0.28$. When you observe sunspots (through a
+specially designed instrument with a very strong solar filter! do not
+try to observe the Sun in any other way!!) they thus appear to your
+eye very dark even though they are only 30\% cooler. This is due to
+the strong dependence of the intensity on temperature.
+\end{answer}
+\item Light that reaches us from the Sun's ``limb'' (the area near its
+  apparent angular edge) has a lower specific intensity than light
+  that reaches us from its angular center. Explain why. Do you predict
+  that the spectrum as a function of frequency differs in shape from
+  center to edge, and if so how?
+
+\begin{answer}
+Consider the volume of the Sun near its surface, which is within an
+optical depth of unity of its surface. This region is known as the
+photosphere. There is a significant temperature gradient within the
+photosphere, declining with radius. 
+
+When observing the center of the solar disk, the radial depth into the
+Sun corresponding to $\tau \sim 1$ is maximal, and thus the
+temperature of the emitting material at $\tau\sim 1$ is highest and
+the specific intensity is the largest.
+
+When observing the edge of the solar disk, because the ray is not
+normal to the radial direction in the Sun, the radial depth into the
+Sun corresponding to $\tau\sim 1$ is smaller, and the temperature  of
+the emitting material at $\tau\sim 1$ is lower.
+
+As we saw in the previous problem, there is a strong dependence of the
+intensity on temperature, and so the edge of the solar disk will
+appear substantially darker in its specific intensity, an effect
+called ``limb darkening.'' This effect is observed in planetary
+transits around distance stars as well, seen in the shape of the
+transit light curves.
+
+We expect the spectrum to differ as well, with the limb being cooler
+(redder) emission; there will be other effects on absorption line
+shapes and depths that will be a bit subtler.
+\end{answer}
+
+\item Given that for redshifted light $v_o = \nu_e / (1+z)$ show that
+  $I_\nu \nu^{-3}$ is a constant. 
+
+\begin{answer}
+  First, we remind ourselves that the definition of specific intensity is:
+  \begin{equation}
+    I_\nu = \frac{{\rm d}E}{{\rm d}\nu {\rm d}A {\rm d}t {\rm
+        d}\Omega}
+  \end{equation}
+  Second, we consider the number of photons in some small volume of
+  phase space, in terms of the distribution function $f$:
+  \begin{equation}
+    {\rm d}N = f(\vec{x}, \vec{p}) {\rm d}^3 \vec{x} {\rm d}^3 \vec{p}
+  \end{equation}
+  The energy in that volume associated with photons of frequency $\nu
+  = p c/h$ corresponding to momentum $p$ can be obtained by
+  multiplying by $h\nu$, and can be rearranged as follows:
+  \begin{eqnarray}
+    {\rm d}E &=&
+    h \nu f(\vec{x}, \vec{p}) {\rm d}^3 \vec{x} {\rm d}^3 \vec{p} \cr
+    &=&
+    h \nu f(\vec{x}, \vec{p}) \left(c {\rm d}t {\rm d}A\right)
+     \left[ \left(\frac{h}{c}\right)^3 \nu^2 {\rm d}\Omega {\rm
+         d}\nu\right],
+  \end{eqnarray}
+  where the spatial volume element is re-expressed as the volume
+  traversed by photons traveling during time ${\rm d}t$ in direction
+  $\hat{p}$ in a cross-sectional area ${\rm d}A$, and the momentum
+  volume element is reexpressed in terms of the frequency using $p =
+  E/c = h\nu /c$ and in terms of the differential frequency ${\rm
+    d}\nu$ and the range of directions (solid angle) ${\rm d}\Omega$.
+  This version of the expression allows us to construct $I_\nu$:
+  \begin{equation}
+    I_\nu = \frac{{\rm d}E}{{\rm d}\nu {\rm d}A {\rm d}t {\rm
+        d}\Omega} = \frac{h^4 \nu^3}{c^2} f(\vec{x}, \vec{p})
+  \end{equation}
+  Liouville's theorem (which holds in general relativity as well as in
+  other contexts) says that under collisionless conditions, if
+  particles cannot be created or destroyed, then along the path of a
+  particle $f(\vec{x}, \vec{v})$ remains a constant. Therefore $I_\nu
+  \nu^{-3}$ is a constant.
+
+  Given the wording of the question, it seems worth pointing out that
+  in a cosmological context this means that:
+  \begin{equation}
+    I_{\nu, {\rm obs}} = I_{\nu, {\rm emitted}} \frac{\nu_{\rm
+        obs}^3}{\nu_{\rm emitted}^3} = I_{\nu, {\rm emitted}} (1+z)^{-3}
+  \end{equation}
+  and if we integrate over frequency:
+  \begin{eqnarray}
+    I_{\rm obs}
+     &=& \int {\rm d}\nu_{\rm obs} I_{\nu, {\rm obs}}(\nu_{\rm obs}) \cr
+ &=& \int {\rm d}\nu_{\rm emitted} (1+z)^{-1} I_{\nu, {\rm
+     emitted}}(\nu_{\rm emitted}) (1+z)^{-3} \cr
+     &=& (1+z)^{-4} \int {\rm d}\nu_{\rm emitted} I_{\nu, {\rm
+        emitted}} \cr
+ &=& (1+z)^{-4} I_{\rm emitted}.
+  \end{eqnarray}
+This effect is generally known within cosmology as ``$(1+z)^4$
+surface brightness dimming'' and is a very important effect in
+observing the distant universe.
+\end{answer}
+  
+\item In cosmology the angular diameter distance is defined as $D_A =
+  s / \theta$, where $s$ is the physical size of an object and
+  $\theta$ is its angular size, and the luminosity distance is defined
+  as $D_L = \sqrt{L/4\pi f}$, where $L$ is the total luminosity of an
+  object (integrated over all frequencies) and $f$ is its measured
+  flux. Using only the fact that $I_\nu \nu^{-3}$ is a constant show
+  that $D_L/D_A = (1+z)^2$.
+
+  \begin{answer}
+    Given the answer to the previous question, we start by noting that
+    the bolometric intensity $I_{\rm obs} \propto (1+z)^{-4}$ (and has no
+    other dependence on distance.
+
+    The flux of an object can be written in terms of the bolometric
+    intensity and the solid angle it subtends:
+    \begin{equation}
+     f = I \Omega
+    \end{equation}
+
+    The definition of $D_A$ tells us that:
+    \begin{equation}
+      \Omega \propto \frac{1}{D_A^2}
+    \end{equation}
+    with no other dependence on distance or redshift.
+
+    The definition of $D_L$ tells us that:
+    \begin{equation}
+      f \propto \frac{1}{D_L^2}
+    \end{equation}
+    with no other dependence on distance or redshift.
+
+    Therefore:
+    \begin{eqnarray}
+      f &\propto& \frac{1}{D_L^2} \quad{\rm ~and~is~also}\cr
+      &=& I \Omega \propto \frac{1}{(1+z)^4} \frac{1}{D_A^2}.
+    \end{eqnarray}
+
+    Jointly, this pair of proportionalities requires:
+    \begin{equation}
+      \frac{D_L}{D_A} = (1+z)^2
+    \end{equation}
+
+    That is, the relationship between the luminosity and angular
+    diameter distance is {\it purely} a statement of Liouville's
+    theorem. Any violation of this relationship implies that the
+    conditions for Liouville's theorem to hold are being violated:
+    photons are being created or destroyed, for example. This
+    relationship can be (has been in fact) tested by using standard
+    rulers (BAO) and standard candles (SNIa) to measure $D_A$ and
+    $D_L$ independently. 
+  \end{answer}
+\end{enumerate}
+
+\end{document}
+
