@@ -1,0 +1,94 @@
+\documentclass[11pt, preprint]{article}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{rotating}
+ 
+\setlength{\footnotesep}{9.6pt}
+\setlength{\parskip}{12pt}
+
+\newcounter{thefigs}
+\newcommand{\fignum}{\arabic{thefigs}}
+
+\newcounter{thetabs}
+\newcommand{\tabnum}{\arabic{thetabs}}
+
+\newcounter{address}
+
+\begin{document}
+
+\begin{center}
+  {\bf Radiative Processes in Astrophysics / Problem Set \#3 \\
+    Due March 3, 2021}
+\end{center}
+
+Choose {\bf ONE} of the two problems below to solve.
+
+\begin{enumerate}
+\item The effect of a polarization filter or a quarter-wave plate, or
+  other device affecting the polarization of light is often expressed
+  in terms of a 4-by-4 ``Mueller matrix'' ${\bf M}$ defined such that:
+  \begin{equation}
+    \begin{pmatrix}
+      I_{\rm out} \\
+      Q_{\rm out} \\
+      U_{\rm out} \\
+      V_{\rm out} \\
+    \end{pmatrix}
+    = 
+    {\bf M} 
+    \cdot
+    \begin{pmatrix}
+      I_{\rm in} \\
+      Q_{\rm in} \\
+      U_{\rm in} \\
+      V_{\rm in} \\
+    \end{pmatrix}
+  \end{equation}
+
+  \begin{enumerate}
+    \item Imagine a polarization filter that admits only linearly polarized
+  light along an axis, taken to be $\theta$ with respect to the
+  $x$-axis. What is the Mueller matrix for this filter?
+
+  \item Now imagine you use this filter on the observations of some
+    object and use a CCD to measure the intensity $I_{\rm
+      out}$. Assuming $V=0$ (almost always true in astrophysical
+    applications), what is the minimum number of measurements with
+    different choices of $\theta$ that you have to do to measure the
+    polarization fraction $\Pi$?
+
+  \item Most (all?) polarimetry observations use more than that
+    minimum number and much cleverer techniques to observe an object
+    through various polarization filter simultaneously. Comment on why
+    that is a good idea (beyond any extra total signal-to-noise you
+    get from more observations).
+  \end{enumerate}
+
+\item Consider an interstellar medium with a constant dust density, so
+  that the absorption and scattering factors $\alpha_\nu$ and
+  $\sigma_\nu$ are constant. Assume the scattering is isotropic and
+  coherent.
+  \begin{enumerate}
+    \item If from the Earth (i.e. from within this interstellar
+      medium) I observe the spectrum of a star at some distance $d$
+      (using a narrow aperture including just the light coming from
+      exactly the direction of the star). By what factor is the flux I
+      measure at frequency $\nu$ affected by the intervening dust?
+    \item Now imagine I observe the total spectrum of a distant galaxy
+      from outside, using an aperture that covers all of the light
+      coming from the galaxy. Assume the galaxy is spherical and the
+      dust, the stars are intermixed randomly, and for simplicity they
+      are all the same type of star as in part (a).  If $\alpha_\nu =
+      0$ but $\sigma_\nu$ is significant, how is the spectrum affected
+      by the presence of the dust?
+    \item If $\sigma_\nu = 0$ but $\alpha_\nu$ is significant, how
+      does the effect of dust on the spectrum differ from the effect
+      on the single star in part (a)?
+    \item How do you expect the spectrum of the galaxy to differ
+      qualitatively from the spectrum of the individual star?
+  \end{enumerate}
+  
+\end{enumerate}
+
+\end{document}
+
