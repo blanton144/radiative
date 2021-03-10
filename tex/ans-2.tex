@@ -1,0 +1,161 @@
+\documentclass[11pt, preprint]{article}
+\usepackage{hyperref}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{environ}
+\usepackage{xcolor}
+
+ 
+\setlength{\footnotesep}{9.6pt}
+\setlength{\parskip}{12pt}
+
+\newcounter{thefigs}
+\newcommand{\fignum}{\arabic{thefigs}}
+
+\newcounter{thetabs}
+\newcommand{\tabnum}{\arabic{thetabs}}
+
+\newcounter{address}
+
+\NewEnviron{answer}[1][]{\color{blue}\expandafter\BODY
+{\par \it #1}}
+
+\begin{document}
+
+\begin{center}
+  {\bf Radiative Processes in Astrophysics / Problem Set \#2 /
+    Answers}
+\end{center}
+
+\noindent Model an interstellar cloud of gas and dust as a uniform,
+  plane-parallel slab 100 pc thick, with a temperature of 50 K, and
+  density dominated by molecular hydrogen with $n \sim 10$
+  cm$^{-3}$. (Problem from Aaron Parsons' notes).
+\begin{enumerate}
+\item Dust is typically made of silicate grains with $\rho \sim 3$ g
+  cm$^{-3}$, $r\sim 0.1$ $\mu$m and with a mass fraction relative to
+  the gas of 0.01. What is the number density of the dust grains?
+
+  \begin{answer}
+    The number density is:
+    \begin{eqnarray}
+      n_{\rm d} &=& \frac{f_{\rm d} n (2 m_p)}{m_{\rm d}} \cr
+      &=& \frac{2 f_{\rm d} n}{\rho 4\pi r^3 /3} \cr
+      &\sim& \frac{0.2 {\rm ~cm}^{-3}
+        \times (1.7 \times 10^{-24} {\rm g})}{12 \times 10^{-15} {\rm g}}\cr
+      &\sim& 3 \times 10^{-11} {\rm ~cm}^{-3}
+    \end{eqnarray}
+  \end{answer}
+    
+\item Imagine a backlight with $I_\nu = 3\times 10^{-9}$
+  erg~s$^{-1}$~Hz$^{-1}$~ster$^{-1}$~cm$^{-2}$ at $\nu =$ 1 THz
+  (terahertz). Assume the dust perfectly absorbs across its
+  cross-section. Ignoring thermal radiation by the dust, calculate
+  the profile of $I_\nu$ through the cloud and the optical depth
+  through the cloud.
+
+  \begin{answer}
+    Without any emission or scattering the radiative transfer equation
+    is: 
+    \begin{equation}
+      \frac{{\rm d}I_\nu}{{\rm d}s} = -\alpha_\nu I_\nu
+    \end{equation}
+    whose solution for constant $\alpha_\nu$ is just:
+    \begin{equation}
+      I_\nu(s) = I_{\nu, 0} \exp\left(- \alpha_\nu s\right),
+    \end{equation}
+    where $s$ measures how far into the cloud the ray has
+    traveled. Meanwhile, for our dust, $\alpha_\nu = \sigma n = \pi
+    r^2 n_{\rm d}$.  Numerically:
+    \begin{equation}
+      \alpha_\nu = \pi (10^{-5} {\rm ~cm})^2 (3\times 10^{-11} {\rm
+        ~cm}^{-3}) \sim 10^{-20} {\rm ~cm}^{-1} \sim 0.03 {\rm
+        pc}^{-1}
+    \end{equation}
+    The optical depth is:
+    \begin{equation}
+      \tau_\nu(s) = \int_0^s {\rm d}s' \alpha_\nu(s') = \alpha_\nu s
+      \sim (0.03 {\rm pc}^{-1}) (100 {\rm ~pc}) \sim 3
+    \end{equation}
+  \end{answer}
+\item Add in the thermal radiation. Assume each dust grain radiates
+  as a blackbody  with T$=$ 50 K across its geometric
+  cross-section. Calculate $j_\nu$ at 1 THz. Find the functional form
+  for and sketch---for the case of {\it no backlight}---the 
+  profile $I_\nu$ through the cloud and the calculate the emergent
+  $I_\nu$. Include both emission and self-absorption!
+
+  \begin{answer}
+    $j_\nu$ arises because of the thermal emission from the surface of
+    each grain. At the surface of each grain, a specific intensity
+    $B_\nu$ will be emitted (erg cm$^{-2}$ s$^{-1}$ Hz$^{-1}$
+    ster$^{-1}$). Per unit volume there will be $n_d$ grains. For each
+    grain, there is $\pi r^2$ of area that can emit in any specific
+    direction.
+    Therefore:
+    \begin{equation}
+      j_\nu = \pi r^2 n_{\rm d} B_\nu
+    \end{equation}
+    then we can write the source function:
+    \begin{equation}
+      S_\nu = \frac{j_\nu}{\alpha_\nu} = \frac{\pi r^2 n_{\rm d}
+        B_\nu}{\pi r^2 n_{\rm d}} = B_\nu = 
+      \frac{2 h \nu^3 /c^2}{\exp(h\nu/kT) - 1}
+    \end{equation}
+    We could have written this down by simply recognizing that the
+    radiation was thermal.
+    We calculate the ratio:
+    \begin{equation}
+      \frac{h\nu}{kT} = \frac{(6.6\times 10^{-27} {\rm ~erg~Hz}^{-1})
+        (10^{12} {\rm ~Hz})}{(1.38 \times 10^{-16} {\rm
+          ~erg~K}^{-1})(50 {\rm ~K})} \sim 1,
+    \end{equation}
+    and then (keeping track of the steradian units):
+    \begin{eqnarray}
+      S_\nu &=& \frac{2 (6.6\times 10^{-27} {\rm ~erg~s})
+        (10^{12} {\rm s}^{-1})^3 (3\times 10^{10} {\rm
+          ~cm~s}^{-1})^{-2}}{\exp(h\nu / kT) - 1} {\rm ster}^{-1}\cr
+      &\sim& 
+      \frac{1.5 \times 10^{-11} {\rm ~erg} {\rm ~cm}^{-2}}{1.7} {\rm ster}^{-1} \cr
+      &\sim& 0.9 \times 10^{-11} {\rm ~erg} {\rm ~cm}^{-2} {\rm ster}^{-1}
+    \end{eqnarray}
+    We then use the equation:
+    \begin{equation}
+      \frac{{\rm d}I_\nu}{{\rm d}\tau_\nu} = - I_\nu +
+      \frac{j_\nu}{\alpha_\nu} = - I_\nu + S_\nu
+    \end{equation}
+    In class we showed:
+    \begin{equation}
+      I_\nu(\tau_\nu) = S_\nu + e^{-\tau_\nu} \left(I_\nu(0) -
+      S_\nu\right)
+    \end{equation}
+    For $I_\nu(0)=0$ (no backlight) we have for $\tau_\nu=3$:
+    \begin{equation}
+      I_\nu(\tau_\nu) = S_\nu(1-e^{-\tau_\nu}) \approx 0.95 S_\nu 
+    \end{equation}
+    so about the same as $S_\nu$ (given above).
+  \end{answer}
+  
+\item Now include the backlight and repeat the previous step.
+
+  \begin{answer}
+    Including the backlight, we find 
+    \begin{eqnarray}
+      I_\nu(\tau_\nu) &=& S_\nu(1-e^{-\tau_\nu}) + e^{-\tau_\nu}
+      I_\nu(0) \cr
+      &\approx& 0.95 S_\nu + 0.05 I_\nu(0) \cr
+      &\sim &
+        (0.9 \times 10^{-11} + 0.05\times 3\times 10^{-9})
+         {\rm ~erg} {\rm ~cm}^{-2} {\rm ~s}^{-1}
+           {\rm ~Hz}^{-1} {\rm ster}^{-1} \cr
+      &\sim &
+        1.6 \times 10^{-10}
+         {\rm ~erg} {\rm ~cm}^{-2} {\rm ~s}^{-1}
+           {\rm ~Hz}^{-1} {\rm ster}^{-1}
+    \end{eqnarray}
+  \end{answer}
+
+\end{enumerate}
+
+\end{document}
+
