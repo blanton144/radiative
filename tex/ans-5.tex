@@ -1,0 +1,85 @@
+\documentclass[11pt, preprint]{article}
+\usepackage{hyperref}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{environ}
+\usepackage{xcolor}
+\usepackage{amsmath}
+
+ 
+\setlength{\footnotesep}{9.6pt}
+\setlength{\parskip}{12pt}
+
+\newcounter{thefigs}
+\newcommand{\fignum}{\arabic{thefigs}}
+
+\newcounter{thetabs}
+\newcommand{\tabnum}{\arabic{thetabs}}
+
+\newcounter{address}
+
+\NewEnviron{answer}[1][]{\color{blue}\expandafter\BODY
+{\par \it #1}}
+
+\begin{document}
+
+\begin{center}
+  {\bf Radiative Processes in Astrophysics / Problem Set \#5 /
+    Answers}
+\end{center}
+
+\begin{enumerate}
+\item 
+  The Rosseland mean absorption is the applicable mean absorption
+  throughout most of a star:
+  \begin{equation}
+    \alpha_R^{\rm ff} = \frac{\int {\rm d}\nu \partial B_\nu /
+      \partial T}
+    {\int {\rm d}\nu \left(1/\alpha_\nu^{\rm ff}\right) \partial B_\nu / \partial T}
+  \end{equation}
+  Use the formula for free-free absorption:
+  \begin{equation}
+    \alpha_\nu^{\rm ff} \propto n_e n_i \frac{1}{\nu^3} \left[1 -
+      \exp(-h\nu/ kT)\right] T^{-1/2}
+  \end{equation}
+  to derive the dependence of $\alpha_R^{\rm ff}$ on temperature. You
+  do not have to derive the coefficient of the dependence. Note there
+  is an annoying integral you will encounter, whose evaluation you do
+  not have to do explicitly. This dependence is known as {\it Kramer's
+    Opacity Law} and is relevant in low-to-medium mass stars.
+
+  \begin{answer}
+    you 
+  \end{answer}
+
+\item Consider a massive cluster of galaxies, with mass $M\sim
+  10^{15}$ $M_\odot$ (total) and radius $R\sim 1$ Mpc. Assume
+  the cluster has the cosmic baryon fraction ($\sim 15\%$) and that
+  most of the gas is distributed in a large spherical region the size
+  of the cluster.
+\begin{enumerate}
+  \item Estimate the number density of protons and electrons. 
+  \item Use the virial theorem relating kinetic energy $K$ and
+    potential energy $U$ ($U = -2K$) to find an order-of-magnitude
+    temperature of the gas (go ahead an assume for this estimate that
+    it is all hydrogen), and the energy in keV of photons at the
+    exponential cutoff of free-free emission.
+  \item Justify the assumption that the gas is fully ionized.
+  \item Compare the optical depth to Thomson scattering in this system
+    to the optical depth to free-free absorption for photons with
+    $h\nu \sim kT$. What is the total effective optical depth? Recall
+    the results we discussed earlier in the semester regarding optical
+    depth in the case of absorption and scattering! Is the system
+    optically thin?
+  \item If the metallicity of the gas is roughly solar (0.02 by mass),
+    how important is the contribution of higher mass ions likely to be
+    to the level of free-free emission? Give just an order of
+    magnitude estimate (and just assume all the metals are oxygen for
+    simplicity).
+\end{enumerate}
+
+\end{enumerate}
+
+
+\end{document}
+
