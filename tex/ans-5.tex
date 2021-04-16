@@ -49,7 +49,44 @@
     Opacity Law} and is relevant in low-to-medium mass stars.
 
   \begin{answer}
-    you 
+    The scaling with $T$ of the numerator of the formula for $\alpha_R^{\rm
+      ff}$ can be derived as follows using the Stefan-Boltzmann law:
+    \begin{equation}
+      \int {\rm d}\nu \frac{\partial B}{\partial T} =
+      \frac{\partial}{\partial T} \int {\rm d}\nu B \propto  
+      \frac{\partial}{\partial T} T^4 \propto  T^3
+    \end{equation}
+
+    The denominator can be simplified as follows:
+    \begin{eqnarray}
+      \int {\rm d}\nu \left(\frac{1}{\alpha_\nu^{\rm ff}}\right)
+      \frac{\partial B}{\partial T}
+      &\propto&
+      \int {\rm d}\nu T^{1/2} \nu^3 \left(1-
+      \exp(-h\nu/kT)\right)^{-1}
+      \frac{\partial}{\partial T}\left(\frac{2 h \nu^3
+        c^2}{\exp(h\nu/kT) -1}\right) \cr 
+     &\propto&
+     \int {\rm d}\nu T^{1/2} \nu^6 \left(1- \exp(-h\nu/kT)\right)^{-1}
+     \left(\frac{(h\nu/kT^2) \exp(h\nu/kT)
+     }{\left(\exp(h\nu/kT) -1\right)^2}\right) \cr 
+     &\propto&
+     \int {\rm d}\nu T^{-3/2} \nu^7 f\left(\frac{h\nu}{kT}\right)
+    \end{eqnarray}
+    where we encapsulate the dependence on $h\nu/kT$ in the function
+    $f$, and then we can perform the substitution $x = h\nu/kT$:
+    \begin{equation}
+      \int {\rm d}\nu \left(\frac{1}{\alpha_\nu^{\rm ff}}\right)
+      \frac{\partial B}{\partial T} \propto T^{-3/2} T^{8} \int {\rm
+        d}x x^7 f(x) \propto T^{13/2}
+    \end{equation}
+    Then (reinserting the dependence on number densities) the
+    Rosseland mean is:
+    \begin{equation}
+      \alpha_{\rm R}^{\rm ff} \propto n_e n_i T^{-7/2}
+    \end{equation}
+    Kramer's Law is usually expressed in terms of the opacity $\kappa
+    = \alpha/\rho \propto \rho T^{-7/2}$.
   \end{answer}
 
 \item Consider a massive cluster of galaxies, with mass $M\sim
@@ -59,23 +96,120 @@
   of the cluster.
 \begin{enumerate}
   \item Estimate the number density of protons and electrons. 
+
+    \begin{answer}
+      In terms of the total mass, radius, and the cosmic baryon
+      fraction $\Omega_b/\Omega_m \approx 0.15$ we have the number
+      density:
+      \begin{equation}
+        n = \frac{N}{V} = \frac{M (\Omega_b/\Omega_m) / m_p}{4\pi
+          R^3/3} = \frac{2\times 10^{71}}{10^{74} {\rm ~cm}^3} \sim
+        2\times 10^{-3} {\rm ~cm}^{-3}
+      \end{equation}
+    \end{answer}
   \item Use the virial theorem relating kinetic energy $K$ and
     potential energy $U$ ($U = -2K$) to find an order-of-magnitude
     temperature of the gas (go ahead an assume for this estimate that
     it is all hydrogen), and the energy in keV of photons at the
     exponential cutoff of free-free emission.
+
+    \begin{answer}
+      The potential energy associated with the gas will be of order:
+      \begin{equation}
+        U \sim - \frac{G M M_b}{R} \sim 
+        - \frac{\Omega_b}{\Omega_m} \frac{G M^2}{R} \sim - 5\times 10^{63}
+             {\rm erg}
+      \end{equation}
+      The total kinetic energy in the gas will be of order:
+      \begin{equation}
+        K = N \frac{3}{2} k T 
+      \end{equation}
+      and so:
+      \begin{equation}
+        T \sim -\frac{3 U}{N k} \sim 10^{9} {\rm ~K}
+      \end{equation}
+      Converting to $h\nu \sim kT$, we find $h\nu\sim 100$ keV. 
+      The temperature is an overestimate by about a factor of ten
+      relative to a typical rich cluster. 
+    \end{answer}
   \item Justify the assumption that the gas is fully ionized.
+
+    \begin{answer}
+      If collisions between free electrons and neutral atoms occur at
+      all, the energies involved will be far higher than the 13.6 eV
+      required to ionize the hydrogen. So virtually every such
+      collision will result in an ionization.
+
+      The rate of collisions will be reasonably high. The typical
+      velocity of a hydrogen atom would be:
+      \begin{equation}
+        v \sim \sqrt{\frac{kT}{m_p}} \sim 1,000 {\rm ~km} {\rm
+          ~s}^{-1}
+      \end{equation}
+      and the cross-section is something like $\sigma = \pi a_0^2$,
+      where $a_0 = 5.3\times 10^{-9} {\rm ~cm}$ is the Bohr radius.
+      The rate of collisions is $n \sigma v \sim 2 \times 10^{-11}$
+      s$^{-1}$, or once every 1,000 years or so. So there is ample
+      opportunity to ionize. The recombination rate will be very much
+      lower, since most proton-electron encounters will be at energies
+      far higher than 13.6 eV.
+    \end{answer}
   \item Compare the optical depth to Thomson scattering in this system
     to the optical depth to free-free absorption for photons with
     $h\nu \sim kT$. What is the total effective optical depth? Recall
     the results we discussed earlier in the semester regarding optical
     depth in the case of absorption and scattering! Is the system
     optically thin?
+
+    \begin{answer}
+      The mean free path for Thomson scattering is:
+      \begin{equation}
+        l = \frac{1}{n \sigma_T} \sim 10^{27} {\rm ~cm} \sim 300 {\rm
+          ~Mpc}
+      \end{equation}
+      and thus the optical depth $\tau_s \sim R/l \sim 0.003$, 
+      indicating that it is very very optically thin to scattering.
+
+      Using the formula in R\&L for the free-free absorption in cgs
+      units:
+      \begin{equation}
+        \alpha_\nu^{\rm ff} = (3.7\times 10^8) T^{-1/2} Z^2 n_e n_i
+        \nu^{-3} \left(1 - e^{-h\nu/kT}\right) {\bar g}_{\rm ff}
+      \end{equation}
+      we find for $Z=1$, ${\bar g}_{\rm ff} = 1$, and $h\nu=kT$ that
+      $\alpha_\nu \sim 10^{-60}$ cm$^{-1}$, which means the mean free
+      path $l \sim 10^{60}$ cm $\sim 10^{35}$ Mpc, i.e. extremely
+      large, leading to a very close to zero optical depth to
+      absorption ($\tau_a \sim 10^{-35}$).
+
+      Clearly the cluster is extremely optically thin to its own
+      thermal X-rays. But for completeness the ``effective'' optical
+      depth is:
+      \begin{equation}
+        \tau_\ast \approx \sqrt{\tau_a(\tau_a + \tau_s)} \sim
+      \sqrt{\tau_a \tau_s} \sim 10^{-16}.
+       \end{equation}
+    \end{answer}
   \item If the metallicity of the gas is roughly solar (0.02 by mass),
     how important is the contribution of higher mass ions likely to be
     to the level of free-free emission? Give just an order of
     magnitude estimate (and just assume all the metals are oxygen for
     simplicity).
+
+    \begin{answer}
+      The emission scales as follows (assuming the Gaunt factor
+      differences are negligible):
+      \begin{equation}
+        j_\nu \propto Z^2 n_e n_i
+      \end{equation}
+      Assuming all the metals are ${}^{16}O$, the factor $Z^2$ will
+      increase the emission by a factor 64. The number density of
+      oxygen ions will be about 0.001 the number density of
+      protons. There will be up to 8 time more free electrons per
+      ion than for ions, but that is still only a fractional
+      difference of about 0.01. So overall the increase in $j_\nu$
+      will be 5--10\%, or fairly modest.
+      \end{answer}
 \end{enumerate}
 
 \end{enumerate}
