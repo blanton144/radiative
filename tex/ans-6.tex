@@ -1,0 +1,222 @@
+\documentclass[11pt, preprint]{article}
+\usepackage{hyperref}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{environ}
+\usepackage{xcolor}
+\usepackage{amsmath}
+
+ 
+\setlength{\footnotesep}{9.6pt}
+\setlength{\parskip}{12pt}
+
+\newcounter{thefigs}
+\newcommand{\fignum}{\arabic{thefigs}}
+
+\newcounter{thetabs}
+\newcommand{\tabnum}{\arabic{thetabs}}
+
+\newcounter{address}
+
+\NewEnviron{answer}[1][]{\color{blue}\expandafter\BODY
+{\par \it #1}}
+
+\begin{document}
+
+\begin{center}
+  {\bf Radiative Processes in Astrophysics / Problem Set \#6 /
+    Answers}
+\end{center}
+
+\begin{enumerate}
+\item Rybicki \& Lightman problem 4.3. Feel free to use the solutions
+  to guide your work, but it is worth working this problem through
+  fully!
+
+  \begin{enumerate}
+    \item Show that the transformation of acceleration under a boost
+      of velocity $v$ along $x$ is:
+      \begin{eqnarray}
+        a_x &=& \frac{a_x'}{\gamma^3 \sigma^3} \cr
+        a_y &=& \frac{a_y'}{\gamma^2 \sigma^2} - \frac{u_y' v}{c^2}
+        \frac{a_x'}{\gamma^2 \sigma^3}\cr
+        a_z &=& \frac{a_z'}{\gamma^2 \sigma^2} - \frac{u_z' v}{c^2}
+        \frac{a_x'}{\gamma^2 \sigma^3}
+      \end{eqnarray}
+      where:
+      \begin{equation}
+        \sigma = 1 + \frac{v u_x'}{c^2}
+      \end{equation}
+      and $\vec{u}$ is the three-velocity of the particle in the
+      primed frame.
+      
+      \begin{answer}
+        Finding the transformation of acceleration is trickier than it
+        at first would appear. A key thing to note is that spatial
+        components of the 4-acceleration are {\it only} equal to the
+        acceleration as measured in the frame {\it if} one is working
+        in the momentarily comoving frame of the particle. So the work
+        of finding the acceleration is more laborious than it would be
+        if it was easily calculated from the 4-vectors.
+
+        Instead, we have to consider an interval of time in the primed
+        frame, during which the particle is moving and its velocity is
+        changing in that primed frame.  Then we need to consider how
+        that small change in velocity is observed in the unprimed
+        frame over the same interval, {\it and} we have to account for
+        the difference in the time interval between the two frames.
+
+        So we start with the Lorentz tranformation of the time. During
+        the time interval d$t'$ the particle moves d$x'$ and this must
+        be accounted for in finding the interval in the unprimed frame.
+        \begin{eqnarray}
+          {\rm d}t &=& \gamma\left({\rm d}t' + \frac{v}{c^2} {\rm
+            d}x'\right) \cr
+          &=& \gamma\left(1 + \frac{v}{c^2} \frac{{\rm d}x'}{{\rm d}t}\right)
+            {\rm d}t'\cr
+          &=& \gamma\left(1 + \frac{v u_x'}{c^2}\right)
+            {\rm d}t' = \gamma \sigma {\rm d}t'
+        \end{eqnarray}
+        where we use the definition of $\sigma$ in the last step.
+
+        Then we consider the Lorentz transformation of the velocity in
+        the direction of the boost:
+        \begin{equation}
+          u_x = \frac{u_x' + v}{1+v u_x'/c^2}
+        \end{equation}
+        In the interval of time d$t'$ there is a change in velocity
+        d$u_x'$ in the primed frame. Let's find what that differential
+        turns into in the unprimed frame:
+        \begin{eqnarray}
+          {\rm d}u_x &=& \frac{{\rm d}u_x'\left(1 + vu_x'/c^2\right) -
+            {\rm d}u_x' \left(v/c^2\right)(u_x' +v)}{\left(1+v
+            u_x'/c^2\right)^2} \cr
+          &=& \frac{{\rm d}u_x'\left(1 - \left(v^2/c^2\right)\right)}
+            {\left(1+v u_x'/c^2\right)^2} = \frac{{\rm
+                d}u_x'}{\gamma^2 \sigma^2}
+        \end{eqnarray}
+        Note we have to track the differential in $\vec{u}$ but not in
+        $v$ or $\gamma$, which are {\it not} changing.
+
+        And in an orthogonal direction:
+        \begin{equation}
+          u_y = \frac{u_y'}{\gamma\left(1+v u_x'/c^2\right)}
+        \end{equation}
+        Differentiating this one:
+        \begin{eqnarray}
+          {\rm d}u_y  
+          &=& \frac{{\rm d}u_y' \left(1 + v u_x'/c^2\right)}
+          {\gamma\left(1+v u_x'/c^2\right)^2} -
+          \frac{u_y' \left(v/c^2\right) {\rm d}u_x'}{\gamma\left(1+v
+            u_x'/c^2\right)^2}\cr
+          &=& \frac{1}{\gamma \sigma^2} \left(\sigma {\rm d}u_y'
+            - \frac{u_y'  v}{c^2} {\rm d}u_x'\right)
+        \end{eqnarray}
+        Obviously $z$ will yield a similar answer.
+
+        Now we can see what the acceleration in the unprimed frame
+        should be:
+        \begin{eqnarray}
+          \frac{{\rm d}u_x}{{\rm d}t} &=& \frac{1}{\gamma^3 \sigma^3} 
+          \frac{{\rm d}u_x'}{{\rm d}t'} \cr
+          \frac{{\rm d}u_y}{{\rm d}t} &=&
+          \frac{1}{\gamma^2 \sigma^3} \left(\sigma \frac{{\rm
+              d}u_y'}{{\rm d}t'}
+            - \frac{u_y'  v}{c^2} \frac{{\rm d}u_x'}{{\rm d}t'}\right)
+        \end{eqnarray}
+        and just rewriting in accelerations:
+        \begin{eqnarray}
+          a_x &=& \frac{1}{\gamma^3 \sigma^3} a_x'\cr
+          a_y &=&
+          \frac{1}{\gamma^2 \sigma^3} \left(\sigma a_y'
+            - \frac{u_y'  v}{c^2} a_x' \right)
+        \end{eqnarray}
+      \end{answer}
+      \item If the primed frame is the instantaneous rest frame of the
+        particle, show that:
+        \begin{eqnarray}
+          a_{||}' &=&  \gamma^3 a_{||} \cr
+          a_{\perp}' &=&  \gamma^2 a_{\perp}
+        \end{eqnarray}
+
+        \begin{answer}
+        In this case, $u_x' = u_y' = u_z' = 0$ so $\sigma=1$. The
+        parallel direction is $x$ and $y$ can be taken in the
+        direction of the perpendicular acceleration. Then the
+        equations above fall out directly.
+        \end{answer}
+      
+    \end{enumerate}
+
+\item The essential features of the synchrotron spectrum can be
+  derived from the fact that for electrons with high energy ($\gamma
+  \gg 1$) the ``pulse shape'' seen as the beamed emission sweeps by is
+  defined by a function that depends on angle $\theta$ only in the
+  combination $\gamma\theta$. This has the consequence that no matter
+  the width of the pulse in time $\Delta t_A$, the shape is always the
+  same. That means the spectrum of the emission is characterized
+  purely by some critical frequency $\nu_c \sim 1 / \Delta t_A \propto
+  \gamma^2$, which has a number of important consequences described in
+  class.
+
+  The scattered power can be written as:
+  \begin{equation}
+    \frac{{\rm d}P}{{\rm d}\Omega} \propto
+    \frac{1}{\left(1-\beta\cos\theta\right)^4}
+    \left[1 - \frac{\sin^2\theta \cos^2\phi}{\gamma^2 \left(1 -\beta
+        \cos\theta\right)^2}\right]
+  \end{equation}
+  Show in the limit that $\gamma\gg 1$ and for angles ``in the beam''
+  $\theta\sim 1/\gamma \ll 1$, that this power is a function of
+  $\theta$ only through the combination $\gamma\theta$.
+
+  \begin{answer}
+    We begin by recalling the expansion of $\beta$ at large
+    velocities:
+    \begin{equation}
+      \beta = \left(1 + \frac{1}{\gamma^2}\right)^{1/2} \approx 1 -
+      \frac{1}{2\gamma^2} 
+    \end{equation}
+    Then we can also assume $\theta\ll 1$:
+    \begin{equation}
+      1 - \beta\cos\theta \approx 1-
+      \left(1-\frac{1}{2\gamma^2}\right) \left(1 -
+      \frac{\theta^2}{2}\right) = 1 - 1 + \frac{1}{2\gamma^2} +
+      \frac{\theta^2}{2} - \frac{\theta^2}{4\gamma^2}
+    \end{equation}
+    For large $\gamma$ and small $\theta$ we can neglect the last
+    term so that:
+    \begin{equation}
+      1 - \beta\cos\theta \approx 
+      \frac{1 + \gamma^2\theta^2}{2\gamma^2}
+    \end{equation}
+    Then we can substitute this into the equation for the power:    
+  \begin{eqnarray}
+    \frac{{\rm d}P}{{\rm d}\Omega} &\propto&
+    \frac{\gamma^8}{\left(1 + \gamma^2\theta^2\right)^4}
+    \left[1 - \frac{4 \gamma^4 \theta^2 \cos^2\phi}{\gamma^2 
+        \left(1 + \gamma^2\theta^2 \right)^2}\right]\cr
+    &\propto&
+    \frac{\gamma^8}{\left(1 + \gamma^2\theta^2\right)^6}
+    \left[\left(1 + \gamma^2\theta^2\right)^2 - 4 \gamma^2 \theta^2
+      \cos^2\phi \right]
+  \end{eqnarray}
+  That's good enough to answer the question, but it is useful to
+  rearrange this into something that separates the orders of the
+  expansion better, using $2\cos^2\phi - 1= \cos 2\phi$:
+  \begin{equation}
+    \frac{{\rm d}P}{{\rm d}\Omega} \propto
+    \frac{\gamma^8}{\left(1 + \gamma^2\theta^2\right)^6}
+    \left(1 - 2\gamma^2\theta^2 \cos 2\phi + \gamma^4\theta^4\right)
+  \end{equation}
+  This results shows that in this limit, the shape of the profile is
+  set just by the combination $\gamma\theta$, which is key to some of
+  the regularity of the properties of synchrotron radiation from a
+  single electron (i.e. its spectral shape is just characterized by a
+  single frequency defined by $\gamma$ for the electron).
+  \end{answer}
+  
+\end{enumerate}
+
+\end{document}
+
