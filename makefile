@@ -12,11 +12,13 @@ ALL= \
 	$(PDFDIR)/ans-4.pdf \
 	$(PDFDIR)/ans-5.pdf \
 	$(PDFDIR)/ans-6.pdf \
+	$(PDFDIR)/ans-7.pdf \
 	$(PDFDIR)/ps-2.pdf \
 	$(PDFDIR)/ps-6.pdf \
 	$(PDFDIR)/ps-4.pdf \
 	$(PDFDIR)/ps-5.pdf \
 	$(PDFDIR)/ps-7.pdf \
+	$(PDFDIR)/ps-8.pdf \
 	$(PDFDIR)/ps-3.pdf
 
 # $(PDFDIR)/%.pdf $(PDFDIR)/%-answers.pdf: $(TEXDIR)/%.tex $(TEXDIR)/exex.bib \

@@ -1,0 +1,82 @@
+\documentclass[11pt, preprint]{article}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{rotating}
+ 
+\setlength{\footnotesep}{9.6pt}
+\setlength{\parskip}{12pt}
+
+\newcounter{thefigs}
+\newcommand{\fignum}{\arabic{thefigs}}
+
+\newcounter{thetabs}
+\newcommand{\tabnum}{\arabic{thetabs}}
+
+\newcounter{address}
+
+\begin{document}
+
+\begin{center}
+  {\bf Radiative Processes in Astrophysics / Problem Set \#8 \\
+    Due May 3, 2021}
+\end{center}
+
+\begin{enumerate}
+\item In Shengqi Yang's PhD defense last week she discussed the IR
+  lines within the ground configuration of OIII, which is
+  1s$^2$2s$^2$2p$^2$. For the IR transitions within the ${}^3$P term,
+  she considered, and the plots of the OIII transitions within this
+  configuration always show, just the 52 $\mu$m line (between $J=2$
+  and $J=1$) and the 88 $\mu$m line (between $J=1$ and $J=0$). But
+  there also is a potential transition between $J=2$ and
+  $J=0$. Determine what type of transition that third one is,
+  i.e. electric dipole, electric quadrupole, or magnetic dipole, and
+  explain why in terms of the selection rules. Show how the spacing
+  between the three transitions results from Land\'e's interval rule
+  for spin-orbit interactions. If you want to see why the third line
+  is usually omitted you can look it up using the line lists on NIST,
+  and you will see why Shengqi is safe in ignoring the transition with
+  current technology.
+\item Also in the same presentation by Dr.~Yang (as she is now!) she
+  discussed the variation of the line ratio between 52 $\mu$m and 88
+  $\mu$m as a function of electron density, showing a transition
+  occurring somewhere in the range $n_e\sim10^2$--$10^3$ cm$^{-3}$. It
+  is this variation in the line ratio that allows a constraint on $n_e$.
+\begin{enumerate}
+  \item Explain qualitatively what is going on---i.e. why is there a
+    special density at which this line ratio is likely to change? How
+    will that density depend on the $q$ and $A$ values among the three
+    levels?
+  \item Dr.~Wang presented constraints on metallicity and electron
+    density; but she did not talk about the temperature of the gas
+    (i.e. the electron temperature).  Argue why the relative
+    populations of the levels of the ${}^3$P term will not depend on
+    temperature, justifying why she didn't talk about it.  (Remember
+    OIII only exists in gas that is ionized, either collisionally or
+    photoionized).
+  \item Write the equations for the balance between the three energy
+    states, in terms of the number densities $n_0$, $n_1$, and $n_2$,
+    ad in terms of $q_{ij}$ and $A_{ij}$.  You should end up with a
+    homogeneous linear system of three equations. I'm not asking you
+    to solve the system fully (though it can be done). Also, you can
+    leave in factors like $q_{02}$ and $q_{20}$; i.e. you don't need
+    to use the relationship between those two rates imposed by
+    detailed balance considerations.
+  \item Instead, let's think about the low density limit, when
+    $n_e\rightarrow 0$. Use the equations for $n_2$ and $n_1$ in order
+    to find two equations, one for $n_2/n_0$ and one for $n_1/n_0$, in
+    terms of each other. Use the assumption that $n_e$ is small to
+    find approximations for $n_2/n_0$ and $n_1/n_0$ to first order in
+    $n_e$ (it should be a very simple formula for each!). Finally,
+    determine what the relative line flux will be between the $J=2$ to
+    $J=1$ vs. the $J=1$ ro $J=0$ transition under these conditions.
+  \item In the high density limit, we can assume the levels will be
+    kept in thermodynamic equilibrium with the electrons. Determine
+    the relative line flux in this case (remember part (b), note that
+    the multiplicities of each state will come into the calculation,
+    and also leave things in terms of $q$ and $A$ when necessary!).
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
+

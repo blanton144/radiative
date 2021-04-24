@@ -1,0 +1,191 @@
+\documentclass[11pt, preprint]{article}
+\usepackage{hyperref}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{environ}
+\usepackage{xcolor}
+\usepackage{amsmath}
+
+ 
+\setlength{\footnotesep}{9.6pt}
+\setlength{\parskip}{12pt}
+
+\newcounter{thefigs}
+\newcommand{\fignum}{\arabic{thefigs}}
+
+\newcounter{thetabs}
+\newcommand{\tabnum}{\arabic{thetabs}}
+
+\newcounter{address}
+
+\NewEnviron{answer}[1][]{\color{blue}\expandafter\BODY
+{\par \it #1}}
+
+\begin{document}
+
+\begin{center}
+  {\bf Radiative Processes in Astrophysics / Problem Set \#7 /
+    Answers}
+\end{center}
+
+\begin{enumerate}
+\item Compton scattering of CMB photons of electrons in hot gas in
+  galaxy clusters leads to a distortion of the spectrum. The
+  distortion is quantifiable by the Compton parameter $y=N kT_e /
+  m_ec^2$, where $N$ is the number of scatterings that occur.
+  \begin{enumerate}
+    \item Explain in words (or maybe a picture) why the spectral
+      distortion can be distinguished from variation of the background
+      CMB temperature from measuring the spectrum alone.
+
+      \begin{answer}
+        Temperature fluctuations lead to a change in specific
+        intensity which is monotonic with temperature at all
+        wavelengths. Compton scattering does not lead the radiation
+        temperature to change but applies a spectral distortion that
+        redistributes energy; the low energy spectrum actually
+        decreases and the high energy spectrum (roughly above the
+        spectral peak) increases. The resulting spectrum is not 
+        a Planck spectrum of any temperature.
+      \end{answer}
+    \item Estimate $y$ for a galaxy cluster (use the total optical
+      depth to scattering of $\tau\sim 0.003$ from Problem Set \#5,
+      and assume $T_e\sim 10^8$ K). On the Rayleigh-Jeans tail of the
+      CMB light, what is the induced fractional difference in the
+      intensity of observed light? 
+
+      \begin{answer}
+        We can use the definition of $y$ and all we really need to
+        know is the number of scatterings, which at low optical depth
+        is just $\tau$. Then we can convert $kT_e$ to keV to compare
+        to $m_ec^2 = 511$ keV:
+        \begin{equation}
+          y  = \frac{N kT_e}{m_e c^2} = \frac{\tau kT_e}{m_e c^2} =
+          \frac{(0.003) (8.6 {\rm ~keV})}{511 {\rm ~keV}} = 5 \times
+          10^{-5}
+        \end{equation}
+        So $y$ is very small!! The fractional change in intensity on
+        the Raleigh-Jeans tail is $-2y = -10^{-4}$, so very small
+        (though still bigger than the CMB fluctuations).
+      \end{answer}
+  \end{enumerate}
+\item Imagine a set of Cherenkov detectors on the wall of a big vat of
+  water, say with refractive index of $1.3$. If an electron is created
+  that is heading directly at the wall and briefly emits Cherenkov
+  radiation, it will lead to a set of detections arranged in a
+  ring. Write down how the size of the ring depends on distance to the
+  wall and $\beta$ for the electron. 
+
+  \begin{answer}
+    Relative to the direction of motion, Cherenkov radiation is
+    emitted at an angle $\theta$ that satisfies $\cos\theta = 1/\beta
+    n_r$. If it emits only for a short time, this results not in a
+    full cone but just a ring of light. If this emission is a distance
+    $d$ from the wall of detectors, by the time the ring hits the wall
+    it will have a size:
+    \begin{equation}
+      s = d \tan\theta = d \sqrt{\frac{1}{\cos^2\theta} - 1} =
+      d\sqrt{\beta^2 n_r^2 -1}
+    \end{equation}
+    At maximum $\beta\approx 1$ and $n_r\approx 1.3$ this is $s = 0.83
+    d$.
+  \end{answer}
+\item For a Galactic magnetic field of $B\sim \mu$G, and assuming a
+  mean electron density of $n_e \sim 0.1$ cm$^{-3}$, what will ${\rm
+    d}t/{\rm d}\nu$ (i.e. dispersion) and ${\rm d}\theta/{\rm d}\nu$
+  (i.e. Faraday rotation) be of a pulsar 1 kpc away be, assuming the
+  magnetic field is toward us along the line of sight. If the magnetic
+  field in the Galactic disk were oriented in azimuthally symmetric
+  circles (it is not!) how would the rotation measure depend on the
+  observed Galactic longitude of the pulsar?
+
+  \begin{answer}
+    From the class notes, the change in arrival time as a function of
+    frequency is:
+    \begin{equation}
+      \frac{{\rm d}t}{{\rm d}{\omega}} = - \frac{4\pi e^2}{m_e c}
+        \frac{1}{\omega^3} D
+    \end{equation}
+    where $E$ is the dispersion measure, or:
+    \begin{equation}
+      \frac{{\rm d}t}{{\rm d}{\nu}} =
+        - \frac{e^2}{\pi m_e c} \frac{1}{\nu^3} D  =
+        - \frac{e^2}{\pi m_e c} \frac{1}{\nu^3} \int_0^d {\rm d}s n_e =
+        - \frac{e^2 n_e d}{\pi m_e c} \frac{1}{\nu^3}
+    \end{equation}
+    which plugging in numbers is:
+    \begin{equation}
+      \frac{{\rm d}t}{{\rm d}{\nu}} \sim \left(10^{18} {\rm
+        ~s}^{-1}\right) \frac{1}{\nu^3}
+    \end{equation}
+    At $\nu \sim 1$ GHz this will therefore lead to: 
+    \begin{equation}
+      \frac{{\rm d}t}{{\rm d}{\ln \nu}} \sim 1 {\rm ~s},
+    \end{equation}
+    meaning over a broad band pass the change in time delay will be 
+    comparable to the period of the pulsar (around one second) and
+    therefore should be easily measurable.
+
+    The rotation angle is:
+    \begin{equation}
+      \theta = \frac{e^3}{2\pi m^2 c^2 \nu^2} \int_0^d {\rm d}s n_e
+        B_{||}
+    \end{equation}
+    and taking the derivative:
+    \begin{equation}
+      \frac{{\rm d}\theta}{{\rm d}\nu} =
+      - \frac{e^3}{\pi m^2 c^2 \nu^3} \int_0^d {\rm d}s n_e
+        B_{||} = 
+      - \frac{e^3n_e B_{||} d}{\pi m^2 c^2 \nu^3}
+    \end{equation}
+    Plugging in numbers we find:
+    \begin{equation}
+      \frac{{\rm d}\theta}{{\rm d}{\nu}} \sim \left(10^{19} {\rm
+        ~s}^{-1}\right) \frac{1}{\nu^3}
+    \end{equation}
+    and again we can check 1 GHz:
+    \begin{equation}
+      \frac{{\rm d}\theta}{{\rm d}{\ln\nu}} \sim 10
+    \end{equation}
+    which again indicates that the change in polarization angle will
+    be significant across a bandpass.
+
+    The rotation measure depends on the magnetic field projected on
+    the line of sight. So if the magnetic field was in circles around
+    the Galactic center, the as you looked as a function of Galactic
+    longitude it would be zero at $l=0^\circ$ towards the Galactic
+    center, increase to a maximum amplitude at $l=90^\circ$, then decrease to
+    $l=180^\circ$ at the anticenter, and then reverse sign and
+    decrease to a maximum amplitude at $l=270^\circ$.
+    
+  \end{answer}
+\item A calcium atom is in configuration
+  1s$^2$2s$^2$2p$^6$3s$^2$3p$^6$3d5p. What terms are associated with
+  this configuration and which do you expect to be lowest in energy
+  based on Hund's rules? What levels can arise from the lowest energy
+  term?
+
+  \begin{answer}
+   All of the electrons except for 3d5p are in closed shells, so do
+   not contribute to the total spin or orbital angular momentum. With
+   two electrons in unclosed shells, $S=0$ or $1$. These electrons
+   have $l=2$ and $l=1$, so $L=1$, $2$, or $3$. We can proceed with
+   enumerating the terms without being concerned about Pauli
+   exclusion, because the $n$ values for the electrons are
+   different.
+
+   That means that the available terms associated are ${}^1$P$^o$,
+   ${}^1$D$^o$, ${}^1$F$^o$, ${}^3$P$^o$, ${}^3$D$^o$, and ${}^3$F$^o$
+   (where $\sum l = 3$ leads to odd parity for all terms). Hund's
+   rules says that higher $S$ are lower energy, and within the terms
+   of a given $S$ the higher $L$ are lower energy, so the lowest
+   energy term will be ${}^3$F$^o$.
+
+   This lowest energy term will have levels associated with $J=2$,
+   $3$, and $4$ (from lowest to highest energy), denoted
+   ${}^3$F$^o_2$, ${}^3$F$^o_3$, and ${}^3$F$^o_4$.
+  \end{answer}
+\end{enumerate}
+
+\end{document}
+
