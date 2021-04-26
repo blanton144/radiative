@@ -13,6 +13,7 @@ ALL= \
 	$(PDFDIR)/ans-5.pdf \
 	$(PDFDIR)/ans-6.pdf \
 	$(PDFDIR)/ans-7.pdf \
+	$(PDFDIR)/ans-8.pdf \
 	$(PDFDIR)/ps-2.pdf \
 	$(PDFDIR)/ps-6.pdf \
 	$(PDFDIR)/ps-4.pdf \
