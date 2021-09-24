@@ -20,6 +20,7 @@ ALL= \
 	$(PDFDIR)/ps-5.pdf \
 	$(PDFDIR)/ps-7.pdf \
 	$(PDFDIR)/ps-8.pdf \
+	$(PDFDIR)/ps-9.pdf \
 	$(PDFDIR)/ps-3.pdf
 
 # $(PDFDIR)/%.pdf $(PDFDIR)/%-answers.pdf: $(TEXDIR)/%.tex $(TEXDIR)/exex.bib \
