@@ -1,0 +1,266 @@
+\documentclass[11pt, preprint]{article}
+\usepackage{hyperref}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{environ}
+\usepackage{xcolor}
+\usepackage{amsmath}
+
+ 
+\setlength{\footnotesep}{9.6pt}
+\setlength{\parskip}{12pt}
+
+\newcounter{thefigs}
+\newcommand{\fignum}{\arabic{thefigs}}
+
+\newcounter{thetabs}
+\newcommand{\tabnum}{\arabic{thetabs}}
+
+\newcounter{address}
+
+\NewEnviron{answer}[1][]{\color{blue}\expandafter\BODY
+{\par \it #1}}
+
+\begin{document}
+
+\begin{center}
+  {\bf Radiative Processes in Astrophysics / Problem Set \#8 /
+    Answers}
+\end{center}
+
+\begin{enumerate}
+\item In Shengqi Yang's PhD defense last week she discussed the IR
+  lines within the ground configuration of OIII, which is
+  1s$^2$2s$^2$2p$^2$. For the IR transitions within the ${}^3$P term,
+  she considered, and the plots of the OIII transitions within this
+  configuration always show, just the 52 $\mu$m line (between $J=2$
+  and $J=1$) and the 88 $\mu$m line (between $J=1$ and $J=0$). But
+  there also is a potential transition between $J=2$ and
+  $J=0$. Determine what type of transition that third one is,
+  i.e. electric dipole, electric quadrupole, or magnetic dipole, and
+  explain why in terms of the selection rules. Show how the spacing
+  between the three transitions results from Land\'e's interval rule
+  for spin-orbit interactions (note that this rule is only {\it
+    approximately} true!). If you want to see why the third line
+  is usually omitted you can look it up using the line lists on NIST,
+  and you will see why Shengqi is safe in ignoring the transition with
+  current technology.
+
+  \begin{answer}
+    Because it has $\Delta J = 2$, it must be that the third
+    transition is an electric quadrupole transition; magnetic and
+    electric dipole transitions are not allowed by the selection
+    rules.
+
+    Because the states are ordered in energy with $J$, this
+    transition has an energy equal to the sum of the energy of the two
+    other lines, or in terms of wavelength:
+    \begin{equation}
+      \frac{1}{\lambda_{20}} = \frac{1}{\lambda_{01}} +
+        \frac{1}{\lambda_{12}}
+    \end{equation}
+    which yields $\lambda_{20} = 32$ $\mu$m.
+
+    Land\'e's rules indicate that the spin-orbit perturbation must be
+    proportional to:
+    \begin{equation}
+      \Delta_{SO} = J(J+1) -  L(L+1) - S(S+1)
+    \end{equation}
+    and since these are the same term, the differences are just in
+    $J$, so from 0 to 2, the differences will be proportional to:
+    \begin{eqnarray}
+      \Delta_{SO, 0} &=& 0(0+1) -  1(1+1) - 1(1+1) = -4 \cr
+      \Delta_{SO, 1} &=& 1(1+1) -  1(1+1) - 1(1+1) = -2 \cr
+      \Delta_{SO, 2} &=& 2(2+1) -  1(1+1) - 1(1+1) = +2
+    \end{eqnarray}
+    which means that $\Delta_{01}$ should be 1/2 of $\Delta_{12}$. This
+    is not very exact ($\lambda_{12} = 52$ $\mu$m and not 44 $\mu$m).
+    Note that these lines are commonly mislabeled on Grotrian diagrams
+    in the literature.
+    
+    Looking up the transition on NIST, we find $A_{20} \sim 10^{-11}$
+    whereas the other two transitions have $A \sim 10^{-6}$ or
+    stronger, which explains why this electric quadrupole transition
+    may be ignored.
+  \end{answer}
+\item Also in the same presentation by Dr.~Yang (as she is now!) she
+  discussed the variation of the line ratio between 52 $\mu$m and 88
+  $\mu$m as a function of electron density, showing a transition
+  occurring somewhere in the range $n_e\sim10^2$--$10^3$ cm$^{-3}$. It
+  is this variation in the line ratio that allows a constraint on $n_e$.
+\begin{enumerate}
+  \item Explain qualitatively what is going on---i.e. why is there a
+    special density at which this line ratio is likely to change? How
+    will that density depend on the $q$ and $A$ values among the three
+    levels?
+
+    \begin{answer}
+      At high densities, the level populations are kept in
+      thermodynamic equilibrium with the electron temperature. This
+      means that the line ratio will depend on the Boltzmann ratios
+      between the level populations and the Einstein $A$ coefficient.
+
+      At low densities, the upper levels will be collisionally excited
+      but will always be radiatively deexcited. So the line ratios
+      will not depend at all on the Einstein $A$ coefficient, just on
+      the relative excitation rates, which set the level
+      populations. (Note that in this case, where the temperature is
+      much higher than the energy level differences, the ratio of the
+      excitation rates will be close to just the ratio of the
+      multiplicities of the states).
+
+      The critical density setting this transition scale will be
+      related to the ratio of the deexcitation rates $q_{2j}$ and
+      $q_{1j}$ to the radiative decay rates. In detail the definition
+      of the critical density is specific to a given level, and is
+      given by:
+      \begin{equation}
+        n_{c,i} = \frac{\sum_{j<i} A_{ij}}{\sum_{i\ne j} q_{ij}}
+      \end{equation}
+    \end{answer}
+  \item Dr.~Wang presented constraints on metallicity and electron
+    density; but she did not talk about the temperature of the gas
+    (i.e. the electron temperature).  Argue why the relative
+    populations of the levels of the ${}^3$P term will not depend on
+    temperature, justifying why she didn't talk about it.  (Remember
+    OIII only exists in gas that is ionized, either collisionally or
+    photoionized).
+
+    \begin{answer}
+      If the gas is ionized, the electron temperature is likely to be
+      at least of order $10^4$ K. Collisional ionization would
+      definitely imply such temperatures (the collisions have to have
+      energies $> 10$ eV). Photoionization also implies these high
+      temperatures for the electrons, because the typical
+      photoionization energies imparted to the electrons are of order
+      the ionization energy.
+
+      Thus, as mentioned in the previous answer, the temperatures are
+      of order an eV or higher (corresponding to wavelengths of a
+      micron), whereas the level splitting we are talking about is a
+      few hundredths of an eV (i.e. 50--80 $\mu$m in wavelength).
+
+      So basically all collisions will be energetic enough to excite
+      either the $J=1$ or $J=2$ state; their relative populations will
+      not be sensitive to temperature.
+
+      If the level splitting energies were of order the gas
+      temperature, then the populations of the state $i$ (relative to
+      state 0) would be affected strongly by the temperature through a
+      factor related to $(g_i / g_0) \exp(-E_{i}/kT)$. Instead, in
+      this case it is just $g_i/g_0$ that matters.
+    \end{answer}
+  \item Write the equations for the balance between the three energy
+    states, in terms of the number densities $n_0$, $n_1$, and $n_2$,
+    ad in terms of $q_{ij}$ and $A_{ij}$.  You should end up with a
+    homogeneous linear system of three equations. I'm not asking you
+    to solve the system fully (though it can be done). Also, you can
+    leave in factors like $q_{02}$ and $q_{20}$; i.e. you don't need
+    to use the relationship between those two rates imposed by
+    detailed balance considerations.
+
+    \begin{answer}
+      With the left hand side respresenting transitions to each state,
+      and right hand side representing the transitions from, we have:
+      \begin{eqnarray}
+        n_e n_0 q_{02} + n_e n_1 q_{12} &=& n_e n_2 q_{20} + n_e n_2
+        q_{21} + n_2 A_{21} \mathrm{\quad for~}J=2 \cr
+        n_e n_2 q_{21} + n_e n_0 q_{01} + n_2 A_{21} &=& n_e n_1 q_{12} + n_e n_1
+        q_{10} + n_1 A_{10}\mathrm{\quad for~}J=1 \cr
+        n_e n_2 q_{20} + n_e n_1 q_{10} + n_1 A_{10} &=& n_e n_0 q_{02} + n_e n_0
+        q_{01} \mathrm{\quad for~}J=0
+      \end{eqnarray}
+      Since there are no terms without $n_0$, $n_1$, or $n_2$ this is
+      a homogeneous set of linear equations; as we will see in the
+      next answer that means the constraint they impose is on the
+      relative populations of $n_1/n_0$ and $n_2/n_0$.
+    \end{answer}
+  \item Instead, let's think about the low density limit, when
+    $n_e\rightarrow 0$. Use the equations for $n_2$ and $n_1$ in order
+    to find two equations, one for $n_2/n_0$ and one for $n_1/n_0$, in
+    terms of each other. Use the assumption that $n_e$ is small to
+    find approximations for $n_2/n_0$ and $n_1/n_0$ to first order in
+    $n_e$ (it should be a very simple formula for each!). Finally,
+    determine what the relative line flux will be between the $J=2$ to
+    $J=1$ vs. the $J=1$ ro $J=0$ transition under these conditions.
+
+    \begin{answer}
+      Rearranging the first equation above we find:
+      \begin{equation}
+        \frac{n_2}{n_0} =  \frac{n_eq_{02} + n_e \frac{n_1}{n_0}
+          q_{12}}{n_e\left(q_{20} + q_{21}\right) + A_{21}}
+      \end{equation}
+      and rearranging the second we find:
+      \begin{equation}
+        \frac{n_1}{n_0} =  \frac{n_e q_{01} + \frac{n_2}{n_0}
+          \left(n_e q_{21}  +A_{21}\right)}
+             {n_e\left(q_{12} + q_{10}\right) + A_{10}}
+      \end{equation}
+      Consider what happens when $n_e q_{ij} \ll A_{ij}$; the
+      denominators simply become $A_{21}$ and $A_{10}$. Meanwhile, as
+      $n_e$ becomes small the leading order term of $n_1/n_0$ and
+      $n_2/n_0$ is of order $n_e$. Then the second term in the
+      numerator of the expression for $n_2/n_0$ is of order $n_e^2$,
+      and we can approximate:
+      \begin{equation}
+        \frac{n_2}{n_0} \approx \frac{n_e q_{02}}{A_{21}}
+      \end{equation}
+      which makes sense as the balance between collisional excitation
+      from the most populated state (0) and radiative decay. For
+      $n_1/n_0$ we find:
+      \begin{equation}
+        \frac{n_1}{n_0} \approx \frac{n_e q_{01}}{A_{10}} +
+        \frac{1}{A_{10}} \frac{n_2}{n_0} \left(n_e q_{21} + A_{21}\right)
+      \end{equation}
+      Since $n_2/n_0$ is already of order $n_e$, we can drop the first
+      term in the parenthesis. Then using the solution above for
+      $n_2/n_0$:
+      \begin{equation}
+        \frac{n_1}{n_0} \approx \frac{n_e\left(q_{01} +
+          q_{02}\right)}{A_{10}}
+      \end{equation}
+      The qualitative interpretation of this result is that for any
+      excitation to state $J=1$, it will decay through $A_{10}$ (since
+      the time for a deexcitation is much longer than $1/A_{10}$ at
+      low density). And for any excitation to state $J=2$, it will
+      {\it also} eventually decay through $A_{21}$ and then through
+      $A_{10}$ (because the selection rules forbid a direct decay to
+      $J=0$). So the balance for $n_1/n_0$ is between any excitation
+      to $J=1$ or $J=2$ versus the radiative decay rate.
+
+      Note that this means that the flux ratio between the two lines
+      will be:
+      \begin{equation}
+        \frac{f_{21}}{f_{10}} = \frac{h\nu_{21} A_{21}
+          \left(n_e q_{02}/A_{21}\right)}
+             {h\nu_{10} A_{10} 
+          \left(n_e (q_{01} + q_{02}) /A_{10}\right)} = \frac{\nu_{21}
+               q_{02}}{\nu_{10} (q_{01} + q_{02})}
+      \end{equation}
+      independent of electron density. See Yang \& Lidz (2020),
+      Section 5 for numerical values.
+    \end{answer}
+  \item In the high density limit, we can assume the levels will be
+    kept in thermodynamic equilibrium with the electrons. Determine
+    the relative line flux in this case (remember part (b), note that
+    the multiplicities of each state will come into the calculation,
+    and also leave things in terms of $q$ and $A$ when necessary!).
+
+    \begin{answer}
+      In the high density limit:
+      \begin{equation}
+        \frac{n_1}{n_2} = \frac{g_1}{g_2} \exp\left(- \Delta E_{12} / k
+        T\right) \approx g_1/g_2
+      \end{equation}
+      (where $g_1=3$ and $g_2=5$) and then the line flux ratio will be:
+      \begin{equation}
+        \frac{f_{21}}{f_{10}}  \approx \frac{\nu_{21}
+          g_2A_{21}}{\nu_{10} g_1 A_{10}}
+      \end{equation}
+      Again, see Yang \& Lidz (2020) for the specific numbers!
+    \end{answer}
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
+
